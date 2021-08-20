@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * This is a student
+ * @author Yang Haoran
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
