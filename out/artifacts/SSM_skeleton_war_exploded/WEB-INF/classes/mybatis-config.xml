@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.yang.pojo"/>
+    </typeAliases>
+
+    <!--    指定其他mapper文件的位置,用于查找sql语句
+        从target/classes开始的目录
+        可以写多个mapper
+-->
+    <mappers>
+        <mapper resource="com/yang/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>
