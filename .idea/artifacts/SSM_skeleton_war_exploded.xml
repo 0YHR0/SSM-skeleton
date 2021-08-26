@@ -30,6 +30,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.9" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.9" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.9" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.2.1" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:4.0" />
         </element>
       </element>
     </root>

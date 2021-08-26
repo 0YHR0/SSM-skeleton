@@ -1,5 +1,7 @@
 package com.yang.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.yang.pojo.Student;
 import com.yang.service.StudentService;
 import org.apache.ibatis.annotations.Param;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -24,9 +27,12 @@ public class StudentController {
 
     //查询所有的学生
     @RequestMapping("/list")
-    public String getAllStudents(Model model){
+    public String getAllStudents(@RequestParam(value = "page", defaultValue = "1") Integer page, Model model){
+        //使用pagehelper分页
+        PageHelper.startPage(page, 10);
         List<Student> students = studentService.selectAllStudent();
-        model.addAttribute("students",students);
+        PageInfo pageInfo = new PageInfo(students, 100);
+        model.addAttribute("pageInfo",pageInfo);
         return "allStudents";
     }
 
