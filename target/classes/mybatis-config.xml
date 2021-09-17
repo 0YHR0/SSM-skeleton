@@ -11,6 +11,10 @@
     <typeAliases>
         <package name="com.yang.pojo"/>
     </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        </plugin>
+    </plugins>
 
     <!--    指定其他mapper文件的位置,用于查找sql语句
         从target/classes开始的目录

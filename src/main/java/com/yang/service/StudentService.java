@@ -22,4 +22,7 @@ public interface StudentService {
 
     //通过名字查询学生
     List<Student> queryStudentByName(String name);
+
+    //测试事务
+    void testForTransaction();
 }

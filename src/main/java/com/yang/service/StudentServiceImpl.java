@@ -2,9 +2,11 @@ package com.yang.service;
 
 import com.yang.dao.StudentDao;
 import com.yang.pojo.Student;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StudentServiceImpl implements StudentService{
 
     private StudentDao studentDao;
@@ -42,5 +44,11 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public List<Student> queryStudentByName(String name) {
         return studentDao.queryStudentByName(name);
+    }
+
+    @Override
+    public void testForTransaction(){
+        studentDao.deleteStudentById(13);
+        studentDao.addStudent(new Student(123,"yyyhhhhh","second",99));
     }
 }

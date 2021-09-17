@@ -50,7 +50,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="student" items="${requestScope.get('students')}">
+                <c:forEach var="student" items="${pageInfo.list}">
                     <tr>
                         <td>${student.getId()}</td>
                         <td>${student.getName()}</td>
@@ -65,6 +65,40 @@
                 </tbody>
             </table>
         </div>
+<%--        kk--%>
+        <div class="row">
+            <div class="col-md-3">
+                第${pageInfo.pageNum}页，共${pageInfo.pages}页，共${pageInfo.total}条记录
+            </div>
+            <div class="col-md-9 offset-md-2">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/student/list?page=1">首页</a></li>
+                        <c:if test="${pageInfo.hasPreviousPage}">
+                            <li class="page-item"><a class="page-link"
+                                                     href="${pageContext.request.contextPath}/student/list?page=${pageInfo.pageNum-1}">上一页</a></li>
+                        </c:if>
+                        <c:forEach items="${pageInfo.navigatepageNums}" var="page">
+                            <c:if test="${page==pageInfo.pageNum}">
+                                <li class="page-item active"><a class="page-link" href="#">${page}</a></li>
+                            </c:if>
+                            <c:if test="${page!=pageInfo.pageNum}">
+                                <li class="page-item"><a class="page-link"
+                                                         href="${pageContext.request.contextPath}/student/list?page=${page}">${page}</a></li>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${pageInfo.hasNextPage}">
+                            <li class="page-item"><a class="page-link"
+                                                     href="${pageContext.request.contextPath}/student/list?page=${pageInfo.pageNum+1}">下一页</a></li>
+                        </c:if>
+                        <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/student/list?page=${pageInfo.pages}">末页</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
     </div>
 </div>
 

@@ -20,8 +20,8 @@
     </delete>
 
     <insert id="addStudent">
-        insert into Student(name, email, age)
-        values (#{name}, #{email}, #{age})
+        insert into Student(name, email, age,tid)
+        values (#{name}, #{email}, #{age},1)
     </insert>
 
     <select id="queryStudentByName" resultType="Student">
